@@ -5,7 +5,7 @@ import { RouterModule} from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModule} from 'angular-bootstrap-md';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
