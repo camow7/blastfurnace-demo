@@ -12,7 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 const paths: {}[] = [
   {path: "", component: HomeComponent},
@@ -37,6 +37,7 @@ const firebaseConfig = {
                   RouterModule.forRoot(paths),
                   AngularFireModule.initializeApp(firebaseConfig),
                   AngularFireDatabaseModule,
+                  AngularFirestoreModule
                 ],
   declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent, NavbarComponent ],
   bootstrap:    [ AppComponent ]
