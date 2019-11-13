@@ -13,10 +13,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthService } from './auth.service';
 
 const paths: {}[] = [
   {path: "", component: HomeComponent},
-  {path: "login", component: LoginComponent}
+  {path: "login", component: LoginComponent},
+  {path: "profile", component: ProfileComponent},
 ]
 
 const firebaseConfig = {
@@ -37,9 +41,11 @@ const firebaseConfig = {
                   RouterModule.forRoot(paths),
                   AngularFireModule.initializeApp(firebaseConfig),
                   AngularFireDatabaseModule,
-                  AngularFirestoreModule
+                  AngularFirestoreModule,
+                  AngularFireAuthModule
                 ],
-  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent, NavbarComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent, NavbarComponent, ProfileComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [AuthService]
 })
 export class AppModule { }

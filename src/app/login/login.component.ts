@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-
+import {AuthService} from '../auth.service'
 export interface Item { email: string, password: string }
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   private itemDoc: AngularFirestoreDocument<Item>;
   item: Observable<Item>;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, private auth: AuthService) {
     //Create a reference to a document on our database
     this.itemDoc = afs.collection("users").doc("testUser");
     //Creat a variable that holds the latest values of our database document
@@ -31,6 +31,14 @@ export class LoginComponent implements OnInit {
 
   update(item: Item) {
     this.itemDoc.update(item);
+  }
+
+  signinWithGoogle () {
+    this.auth.googleSignIn().then(() => {console.log("success")})
+  }
+
+  signOut() {
+    this.auth.signOut().then(() => console.log("signed out"));
   }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 <!-- Default form login -->
 <div class="row justify-content-md-center" style="padding: 2%">
-<form class="text-center border border-light p-5 col-md-3" >
+<form class="text-center border border-light p-5 col-md-6" >
 
   <p class="h4 mb-4">Sign in</p>
 
@@ -23,7 +23,9 @@
 
   <!-- Sign in button -->
   <button mdbBtn color="info" block="true" class="my-4" (click)="onSubmit()" type="submit">Sign in</button>
-  <button type="button" mdbBtn color="secondary" class="my-4" mdbWavesEffect> Google Sign In</button>
+  <button type="button" mdbBtn color="secondary" class="my-4" (click)="signinWithGoogle()" mdbWavesEffect> Google Sign In</button>
+
+  <button type="button" mdbBtn color="indigo" class="my-4" (click)="signOut()" mdbWavesEffect> Sign Out</button>
 
   <!-- Register -->
   <p>Not a member?
