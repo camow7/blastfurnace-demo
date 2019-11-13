@@ -16,11 +16,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthService } from './auth.service';
+import {AuthGuard} from "./auth.guard"
 
 const paths: {}[] = [
   {path: "", component: HomeComponent},
   {path: "login", component: LoginComponent},
-  {path: "profile", component: ProfileComponent},
+  {path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
 ]
 
 const firebaseConfig = {
@@ -46,6 +47,6 @@ const firebaseConfig = {
                 ],
   declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent, NavbarComponent, ProfileComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AuthService]
+  providers: [AuthService, AuthGuard]
 })
 export class AppModule { }
